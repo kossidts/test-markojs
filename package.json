@@ -7,7 +7,9 @@
   },
   "devDependencies": {
     "@marko/build": "^4",
-    "@marko/serve": "^4"
+    "@marko/serve": "^4",
+    "sass": "^1.53.0",
+    "sass-loader": "^13.0.2"
   },
   "private": true,
   "scripts": {
