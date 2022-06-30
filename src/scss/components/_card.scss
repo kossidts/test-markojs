@@ -1,0 +1,40 @@
+.card {
+    padding: 9px;
+    border: 1px solid var(--clr-gray-500);
+    border-radius: 5px;
+
+    h2 {
+        font-size: 1.175rem;
+        margin: 0 0 17px 0;
+    }
+
+    .badge {
+        font-size: 0.75rem;
+        padding: 0.2em 0.5em;
+        text-transform: uppercase;
+        background-color: var(--clr-bg, var(--clr-gray-500));
+        color: var(--clr-fg, var(--clr-gray-100));
+        border-radius: 5px;
+    }
+
+    &.card-package {
+        .card-body {
+            display: flex;
+            flex-direction: column;
+
+            p {
+                display: flex;
+                margin: 0 0 13px 0;
+                justify-content: space-between;
+                gap: 1rem;
+
+                span:last-of-type {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    max-width: 70%;
+                }
+            }
+        }
+    }
+}

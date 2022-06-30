@@ -1,0 +1,154 @@
+import favicon from "../favicon.png";
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href=favicon>
+  <meta name="description" content="A basic Marko app.">
+  <title>${input.title}</title>
+</head>
+<body>
+  <header>
+    <div class="container flexed">
+        <a href="/" class="logo">
+          <img src=favicon />
+        </a> 
+        <nav>
+            <a href="/">Home</a>
+        </nav>
+    </div>
+  </header>
+  <main>
+    <${input.renderBody}/>
+  </main>
+  <footer>
+      <div class="container">
+          <p>Testing The Marko Framework...</p>
+      </div>
+  </footer>  
+</body>
+</html>
+
+style.scss {
+  // reset 
+  @use "../../scss/resets";
+
+  
+
+  // variables
+  $primary: #00537f;
+  $accent: #b6890c;
+  $dark: #333;
+
+
+  // root
+  :root {
+    --clr-primary: #{$primary};
+    --clr-accent: #{$accent};
+    --clr-gray-500: #ededed;
+    --clr-gray-100: #{$dark};
+    --clr-dark: #{$dark};
+    --max-content-width: 1320px;
+  } 
+
+
+  // styles
+  body {
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--clr-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    & > header {
+        border-bottom: 1px solid var(--clr-gray-500);
+
+        .container {
+            min-height: 50px;
+            justify-content: space-between;
+            height: 100%;
+        }
+    }
+
+    & > main {
+        flex-grow: 1;
+    }
+
+    & > footer {
+        background-color: var(--clr-gray-500);
+    }
+  }
+
+  .container {
+      max-width: var(--max-content-width);
+      margin-inline: auto;
+  }
+
+  .flexed{
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+  }
+
+  section{
+    padding-top: 2rem;
+    padding-bottom: 2rem
+  }
+
+  h1+p{
+    font-size: 1.4rem;
+    max-width: 70ch;
+  }
+
+  code{
+    font-size: 1.1rem;
+    padding: .1em;
+    border: 1px solid var(--clr-gray-500);
+  }
+
+
+  // components/card
+  .card {
+    padding: 9px;
+    border: 1px solid var(--clr-gray-500);
+    border-radius: 5px;
+
+    h2 {
+        font-size: 1.175rem;
+        margin: 0 0 17px 0;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.2em 0.5em;
+      text-transform: uppercase;
+      background-color: var(--clr-bg, var(--clr-gray-500));
+      color: var(--clr-fg, var(--clr-gray-100));
+      border-radius: 5px;
+    }
+
+    &.card-package {
+      .card-body {
+          display: flex;
+          flex-direction: column;
+
+          p {
+              display: flex;
+              margin: 0 0 13px 0;
+              justify-content: space-between;
+              gap: 1rem; 
+
+              span:last-of-type {
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                  max-width: 70%;
+              }
+          }
+      }
+    }
+  }
+}

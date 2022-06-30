@@ -1,0 +1,26 @@
+$ const pkgs = [
+    {name: "SkyBlue", version: "1.0.0", author: "John Doe", type: "widget"},
+    {name: "DarkLight", version: "2.0.3", author: "Jane White", type: "block"},
+]
+
+<app-layout-broken title="Welcome to Marko">
+  
+<section>
+    <div class="container">
+        <span>Using: <code>src/pages/index-broken/index.marko</code></span>
+        <h1>(Re-)Compilation will fail...</h1>
+        <p>
+           Instead of writing all styles in plain scss within the <code>style.scss { }</code> block, 
+           we choose to organize and structure the styles in a different folder <code>src/scss</code>. 
+           Then we <code>@use ../../scss/resets.scss</code> to include the partial file. <br>
+           <strong>As soon as any of the included scss partials (in this case just the <code>src/scss/resets.scss</code> file) is updated and saved, the compilation fails.</strong>
+        </p>
+        <div class="flexed">
+            <for|pkg| of=pkgs>
+                <card pkg=pkg />
+            </for>
+        </div> 
+    </div> 
+</section>
+  
+</app-layout-broken>
